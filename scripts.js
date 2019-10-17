@@ -118,7 +118,6 @@ let updateTodoList = function() {
                     row.append(td);
                     td.attr("class","border");
 
-
                     // att=document.createAttribute("class");
                     // att.value = "border";
                     // cell.setAttributeNode(att);
@@ -132,21 +131,13 @@ let updateTodoList = function() {
                 // function() {
                 //     deleteTodo(todo);
                 // });
-
-                // let button1 = $("<button/>")
-                // .text("x")
-                // .click()(function() {
-                //     deleteTodo(todo);
-                // });
-
-                // let td = $("<td></td>").button(buton1);
-                // row.append(td);
-                // let td = $("<td></td>").text("x");
                 let td = $('<input></input>').attr({'type': 'button'}).val("x").click(function() {
                     deleteTodo(todo);
-                }).append(row);
+                });
 
-                // row.append(td);
+                td.attr("class","btn btn-dark");
+                row.append(td);
+
                 // let cell = row.insertCell();
                 // let text = document.createTextNode(newDeleteButton1.value);
                 // cell.appendChild(newDeleteButton1);
