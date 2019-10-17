@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="theme.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+        <script src="scripts.js"></script>
+        <title>MyTODO App</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1 class="font-weight-bolder">MyNotes</h1>
+        <table style="width:100%" class="table table-light table-striped table-hover table-sm">
+
+        </table>
+        <form class="font-weight-bold font-italic form-inline d-flex justify-content-center">
+            <fieldset>
+                <label>Title:</label>
+                <input type="text" class="form-control" id="inputTitle"/>
+            </fieldset>
+            <fieldset>
+                <label>&nbsp;Description:</label>
+                <input type="text" class="form-control" id="inputDescription"/>
+            </fieldset>
+            <fieldset>
+                <label>&nbsp; Place:</label>
+                <input type="text" class="form-control" id="inputPlace"/>
+            </fieldset>
+            <fieldset>
+                <label>&nbsp; Due date:</label>
+                <input type="date" class="form-control" id="inputDate"/>
+            </fieldset>
+            <fieldset>
+                <label>&nbsp;</label>
+                <input type="button" class="btn btn-dark active" value="add" onclick="addTodo()"/>
+            </fieldset>
+            
+        </form>
+        </div>
+        <div style="padding: 10px"  class="container">
+           <h3><span class="label label-default">Search</span></h3>
+           
+            <input type="text" class="form-control" id="inputSearch" placeholder="Type Your seach here..." />
+            <input type="date" class="form-control" id="inputSearchDate1" placeholder="Date searching..." />
+            <input type="date" class="form-control" id="inputSearchDate2" placeholder="Date searching..." />
+        </div>
+    </body>
+</html>
