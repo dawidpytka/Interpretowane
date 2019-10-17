@@ -70,28 +70,28 @@ let updateTodoList = function() {
          table.removeChild(table.firstChild);
     }
 
-    let thead = table.createTHead();      
-    let row = thead.insertRow();
+    // let thead = table.createTHead();      
+    // let row = thead.insertRow();
 
-     // let thead=jQuery("<thead></thead>").appendTo(table);
-     // let row=jQuery("<tr></tr>").appendTo(thead);
+     let thead=jQuery("<thead></thead>").appendTo(table);
+     let row=jQuery("<tr></tr>").appendTo(thead);
     
     
     for (let column in namesList){
-        let th = document.createElement("th");
-        let text = document.createTextNode(namesList[column]);
-        th.appendChild(text);
-        row.appendChild(th);
-        // let th = $("<th></th>").text(namesList[column])[0];
-        // row.append(th);
+        // let th = document.createElement("th");
+        // let text = document.createTextNode(namesList[column]);
+        // th.appendChild(text);
+        // row.appendChild(th);
+        let th = $("<th></th>").text(namesList[column]);
+        row.append(th);
     }
      // let att = document.createAttribute("class");
      // att.value = "thead-dark";
      // thead.setAttributeNode(att);
-    thead.attr("class", "thead-dark");
+    thead.attr("class","thead thead-dark");
 
-    let tbody = table.createTBody();
-    // let tbody =jQuery("<tbody></tbody>").appendTo(table);
+    // let tbody = table.createTBody();
+    let tbody =jQuery("<tbody></tbody>").appendTo(table);
     let filterInput = $("#inputSearch")[0];
     let dateFilter1 = $("#inputSearchDate1")[0];
     let dateFilter2 = $("#inputSearchDate2")[0];
@@ -106,28 +106,54 @@ let updateTodoList = function() {
             (todoList[todo].description.includes(filterInput.value))
         ){
             if((dateFilter1.value == "" ||  dateFilter2.value == "" ) || (todoList[todo].dueDate >= dateFilter1.value && todoList[todo].dueDate <= dateFilter2.value)) {
-                let row = tbody.insertRow();
+                // let row = tbody.insertRow();
+                let row=jQuery("<tr></tr>").appendTo(tbody);
                 for(let key in todoList[todo]){
-                    let cell = row.insertCell();
-                    let text = document.createTextNode(todoList[todo][key]);
-                    cell.appendChild(text);
-                    att=document.createAttribute("class");
-                    att.value = "border";
-                    cell.setAttributeNode(att);
+                    // let cell = row.insertCell();
+                    // let text = document.createTextNode(todoList[todo][key]);
+                    // cell.appendChild(text);
+
+
+                    let td = $("<td></td>").text(todoList[todo][key]);
+                    row.append(td);
+                    td.attr("class","border");
+
+
+                    // att=document.createAttribute("class");
+                    // att.value = "border";
+                    // cell.setAttributeNode(att);
                 }
-                let newDeleteButton1 = document.createElement("input");
-                newDeleteButton1.type = "button";
-                newDeleteButton1.value = "x";
-                newDeleteButton1.addEventListener("click",
-                function() {
+                
+
+                // let newDeleteButton1 = document.createElement("input");
+                // newDeleteButton1.type = "button";
+                // newDeleteButton1.value = "x";
+                // newDeleteButton1.addEventListener("click",
+                // function() {
+                //     deleteTodo(todo);
+                // });
+
+                // let button1 = $("<button/>")
+                // .text("x")
+                // .click()(function() {
+                //     deleteTodo(todo);
+                // });
+
+                // let td = $("<td></td>").button(buton1);
+                // row.append(td);
+                // let td = $("<td></td>").text("x");
+                let td = $('<input></input>').attr({'type': 'button'}).val("x").click(function() {
                     deleteTodo(todo);
-                });
-                let cell = row.insertCell();
-                let text = document.createTextNode(newDeleteButton1.value);
-                cell.appendChild(newDeleteButton1);
-                att=document.createAttribute("class");
-                att.value = "border btn btn-outline-dark";
-                cell.setAttributeNode(att);
+                }).append(row);
+
+                // row.append(td);
+                // let cell = row.insertCell();
+                // let text = document.createTextNode(newDeleteButton1.value);
+                // cell.appendChild(newDeleteButton1);
+
+                // att=document.createAttribute("class");
+                // att.value = "border btn btn-outline-dark";
+                // cell.setAttributeNode(att);
             }
         }
     }
