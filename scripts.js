@@ -62,36 +62,50 @@ let updateJSONbin = function() {
 
 let updateTodoList = function() {
 
-    let table = document.querySelector("table");
+    // let table = document.querySelector("table");
+    let table = $("table")[0];
 
     //remove all elements
     while (table.firstChild) {
-        table.removeChild(table.firstChild);
+         table.removeChild(table.firstChild);
     }
 
     let thead = table.createTHead();      
     let row = thead.insertRow();
+
+     // let thead=jQuery("<thead></thead>").appendTo(table);
+     // let row=jQuery("<tr></tr>").appendTo(thead);
+    
     
     for (let column in namesList){
         let th = document.createElement("th");
         let text = document.createTextNode(namesList[column]);
         th.appendChild(text);
         row.appendChild(th);
+        // let th = $("<th></th>").text(namesList[column])[0];
+        // row.append(th);
     }
-    let att = document.createAttribute("class");
-    att.value = "thead-dark";
-    thead.setAttributeNode(att);
+     // let att = document.createAttribute("class");
+     // att.value = "thead-dark";
+     // thead.setAttributeNode(att);
+    thead.attr("class", "thead-dark");
+
     let tbody = table.createTBody();
-    let filterInput = document.getElementById("inputSearch");
-    let dateFilter1 = document.getElementById("inputSearchDate1");
-    let dateFilter2 = document.getElementById("inputSearchDate2"); 
+    // let tbody =jQuery("<tbody></tbody>").appendTo(table);
+    let filterInput = $("#inputSearch")[0];
+    let dateFilter1 = $("#inputSearchDate1")[0];
+    let dateFilter2 = $("#inputSearchDate2")[0];
+    // let filterInput = document.getElementById("inputSearch");
+    // let dateFilter1 = document.getElementById("inputSearchDate1");
+    // let dateFilter2 = document.getElementById("inputSearchDate2"); 
+    
     for (let todo in todoList) {
         if (
             (filterInput.value == "") ||
             (todoList[todo].title.includes(filterInput.value)) ||
             (todoList[todo].description.includes(filterInput.value))
         ){
-            if((dateFilter1.value == "" ||  dateFilter2.value == "" ) || (todoList[todo].dueDate > dateFilter1.value && todoList[todo].dueDate < dateFilter2.value)) {
+            if((dateFilter1.value == "" ||  dateFilter2.value == "" ) || (todoList[todo].dueDate >= dateFilter1.value && todoList[todo].dueDate <= dateFilter2.value)) {
                 let row = tbody.insertRow();
                 for(let key in todoList[todo]){
                     let cell = row.insertCell();
@@ -127,11 +141,16 @@ let deleteTodo = function(index) {
 }
 
 let addTodo = function() {
-  //get the elements in the form
-    let inputTitle = document.getElementById("inputTitle");
-    let inputDescription = document.getElementById("inputDescription");
-    let inputPlace = document.getElementById("inputPlace");
-    let inputDate = document.getElementById("inputDate");
+  // get the elements in the form
+
+    // let inputTitle = document.getElementById("inputTitle");
+    // let inputDescription = document.getElementById("inputDescription");
+    // let inputPlace = document.getElementById("inputPlace");
+    // let inputDate = document.getElementById("inputDate");
+    let inputTitle = $("#inputTitle")[0];
+    let inputDescription = $("#inputDescription")[0];
+    let inputPlace = $("#inputPlace")[0];
+    let inputDate = $("#inputDate")[0];
   //get the values from the form
     let newTitle = inputTitle.value;
     let newDescription = inputDescription.value;
