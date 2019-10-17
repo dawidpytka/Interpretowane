@@ -56,41 +56,7 @@ let updateJSONbin = function() {
     console.log(err.responseJSON);
   }
 });}
-//initList();
 
-// let updateTodoList = function() {
-//     let todoListDiv =
-//     document.getElementById("todoListView");
-
-//     //remove all elements
-//     while (todoListDiv.firstChild) {
-//         todoListDiv.removeChild(todoListDiv.firstChild);
-//     }
-
-//     //add all elements
-//     let filterInput = document.getElementById("inputSearch");   
-//     for (let todo in todoList) {
-//       if (
-//         (filterInput.value == "") ||
-//         (todoList[todo].title.includes(filterInput.value)) ||
-//         (todoList[todo].description.includes(filterInput.value))
-//       ) {
-//         let newElement = document.createElement("p");
-//         let newContent = document.createTextNode(todoList[todo].title + " " +
-//                                                  todoList[todo].description);
-//         let newDeleteButton = document.createElement("input");
-//         newDeleteButton.type = "button";
-//         newDeleteButton.value = "x";
-//         newDeleteButton.addEventListener("click",
-//             function() {
-//                 deleteTodo(todo);
-//             });
-//         newElement.appendChild(newContent);
-//         todoListDiv.appendChild(newElement);
-//         newElement.appendChild(newDeleteButton);
-//       }
-//     }
-// }
 
 
 
